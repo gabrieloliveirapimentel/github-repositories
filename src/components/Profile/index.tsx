@@ -1,6 +1,7 @@
 
 import { useTheme } from "styled-components";
-import { FaArrowUpRightFromSquare, FaBuilding, FaGithub, FaUserGroup } from "react-icons/fa6";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { GoPerson, GoPeople, GoOrganization  } from "react-icons/go";
 import { 
     Container, 
     Content, 
@@ -33,15 +34,15 @@ export function Profile({ profile }: IHeaderProfile) {
                 <Item>
                     <Links>
                         <Link>
-                            <FaGithub fontSize={16} color={theme['gray-300']} />
+                            <GoPerson fontSize={16} color={theme['gray-300']} />
                             <span>{profile.login}</span>
                         </Link>
                         <Link>
-                            <FaBuilding fontSize={16} color={theme['gray-300']} />
+                            <GoOrganization fontSize={16} color={theme['gray-300']} />
                             <span>Rocketseat</span>
                         </Link>
                         <Link>
-                            <FaUserGroup fontSize={16} color={theme['gray-300']} />
+                            <GoPeople fontSize={16} color={theme['gray-300']} />
                             <span>{followersNumber}</span>
                         </Link>
                     </Links>
