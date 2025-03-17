@@ -9,7 +9,7 @@ export const Content = styled.div`
 
     @media (max-width: 864px) {
         align-items: center;
-        margin: 4rem 0;
+        margin: 4rem 2rem 0;
     }
 `
 
@@ -19,9 +19,8 @@ export const Container = styled.div`
 
     @media (max-width: 864px) {
         align-items: center;
-        margin: 4rem 2rem 0;
+        margin: 0 24px 0 24px;
     }
-    
 `
 
 export const Button = styled.button`
@@ -58,4 +57,12 @@ export const Button = styled.button`
             cursor: default;
         }
     }
+`
+
+export const Spinner = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
 `

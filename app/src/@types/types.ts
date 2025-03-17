@@ -71,8 +71,19 @@ export interface IProfileContextType {
     fetchRepositoriesByUser: (page: number) => Promise<void>;
 }
 
+export interface IAuthContextType {
+    isAuthenticated: boolean;
+    token: string;
+    handleLogin: (accessToken: string) => void;
+    handleLogout: () => void;
+}
+
 export interface ListProps {
     repositories: IRepository[]
     updateRepositories: (page: number) => void
+}
+
+export interface HeaderProps {
+    logout?: boolean
 }
 
