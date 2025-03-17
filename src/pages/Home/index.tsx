@@ -1,21 +1,15 @@
-import { useContext, useEffect, useState } from "react"
-import { Card } from "../../components/Card"
+import { useContext, useState } from "react"
 import { Profile } from "../../components/Profile"
-import { Search } from "../../components/Search"
 import { ProfileContext } from "../../context/types"
-import { Container, Content, List } from "./styles"
+import { Container, Content } from "./styles"
 import { IRepository } from "../../@types/types"
+import { List } from "../../components/List"
 
 export function Home() {
-    const { profile, repositories } = useContext(ProfileContext)
-    const [ filteredRepositories, setFilteredRepositories ] = useState<IRepository[]>(repositories)
-    const [ search, setSearch ] = useState<string>('')
+    const { profile, repositories, fetchRepositoriesByUser } = useContext(ProfileContext)
+    const [ filteredRepositories ] = useState<IRepository[]>(repositories)
 
-    useEffect(() => {
-        if (repositories) setFilteredRepositories(repositories.filter(repository => repository.full_name.toLowerCase().includes(search.toLowerCase()))) 
-        else setFilteredRepositories([])
-    }
-    , [search, repositories])
+    console.log(filteredRepositories.length)
 
     return (
         <div>
@@ -23,16 +17,9 @@ export function Home() {
             <Container>
                 <Content>
                     <h2>Repositórios</h2>
-                    <span>{filteredRepositories.length} repositórios</span>
+                    <span>{repositories.length} repositórios</span>
                 </Content>
-                <Search search={search} updateSearch={setSearch} />
-                <List>
-                    {filteredRepositories.length > 0 ? filteredRepositories.map(( repository: IRepository )  => (
-                        <Card key={repository.id} repository={repository} />
-                    )) : (
-                        <span>Nenhum repositório encontrado</span>
-                    )}
-                </List>
+                <List repositories={repositories} updateRepositories={fetchRepositoriesByUser} />
             </Container>
         </div>
     )

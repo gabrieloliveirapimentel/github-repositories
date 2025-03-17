@@ -9,8 +9,8 @@ const GetUser = async () => {
     return data
 }
 
-const GetRepositoriesByUser = async () => {
-    const data = await api.get(`search/repositories?q=user:${USER}&sort=updated&order=desc`, {
+const GetRepositoriesByUser = async (page: number) => {
+    const data = await api.get(`search/repositories?q=user:${USER}&sort=updated&order=desc&per_page=10&page=${page}`, {
         headers: { Authorization: `Bearer ${TOKEN}` }
     })
 
