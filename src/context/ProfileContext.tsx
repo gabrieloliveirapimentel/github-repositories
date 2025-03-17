@@ -29,12 +29,6 @@ export function ProfileProvider({ children}: IProfileProviderProps) {
         fetchProfile()
     },[fetchProfile])
 
-    /*
-    useEffect(() => {
-        fetchRepositoriesByUser()
-    }, [fetchRepositoriesByUser])
-    */
-
     return (
         <ProfileContext.Provider value={{profile, repositories, fetchRepositoriesByUser}}>
             {children}

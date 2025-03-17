@@ -1,15 +1,11 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Profile } from "../../components/Profile"
 import { ProfileContext } from "../../context/types"
 import { Container, Content } from "./styles"
-import { IRepository } from "../../@types/types"
 import { List } from "../../components/List"
 
 export function Home() {
     const { profile, repositories, fetchRepositoriesByUser } = useContext(ProfileContext)
-    const [ filteredRepositories ] = useState<IRepository[]>(repositories)
-
-    console.log(filteredRepositories.length)
 
     return (
         <div>
