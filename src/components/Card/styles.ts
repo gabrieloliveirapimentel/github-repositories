@@ -26,7 +26,7 @@ export const Heading = styled.div`
         color: ${props => props.theme["gray-200"]};
 
         &:hover {
-            color: ${props => props.theme["gray-300"]};
+            color: ${props => props.theme.blue};
         }
     }
     
