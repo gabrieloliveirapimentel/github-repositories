@@ -45,6 +45,8 @@ export const Button = styled.button`
     &:hover {
         color: ${props => props.theme['dark-blue']};
         border-bottom: 2px solid;
+
+        cursor: pointer;   
     }
 
     &:disabled {
@@ -53,6 +55,7 @@ export const Button = styled.button`
         &:hover {
             color: ${props => props.theme.blue};
             border-bottom: none;
+            cursor: default;
         }
     }
 `
