@@ -12,7 +12,8 @@ export interface IHeaderProfile {
 export interface ICardProps {
     repository: {
         full_name: string;
-        created_at: string;
+        created_at?: string;
+        updated_at: string;
         html_url: string;
         owner: IProfile;
         ssh_url: string;
@@ -20,6 +21,7 @@ export interface ICardProps {
         forks: number;
         watchers: number;
         default_branch: string;
+        language: string;
     }
 }
 
@@ -60,6 +62,7 @@ export interface IRepository {
     forks: number;
     watchers: number;
     default_branch: string;
+    language: string;
 }
 
 export interface IProfileContextType {

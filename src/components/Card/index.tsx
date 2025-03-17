@@ -3,11 +3,13 @@ import { Container, Content, Items, Item, Link, Heading } from "./styles";
 import { ptBR } from "date-fns/locale";
 import { useTheme } from "styled-components";
 import { ICardProps } from "../../@types/types";
-import { GoKey, GoGitBranch, GoRepoForked, GoEye, GoCode } from "react-icons/go";
+import { GoKey, GoGitBranch, GoRepoForked, GoEye, GoCode, GoDotFill } from "react-icons/go";
 import toast, { Toaster } from "react-hot-toast";
+import { useLanguagesDictionary } from "../../hooks/useLanguagesDictionary";
 
 export function Card({repository} : ICardProps) {
     const theme = useTheme();
+    const languagesDictionary = useLanguagesDictionary();
 
     function copySSHToClipboard() {
         navigator.clipboard.writeText(repository.ssh_url);
@@ -34,8 +36,8 @@ export function Card({repository} : ICardProps) {
             <Heading>
                 <a href={repository.html_url} target="_blank">{repository.full_name}</a>
                 <span>
-                    {formatDistanceToNow(
-                        new Date(repository.created_at), {
+                    Atualizado {formatDistanceToNow(
+                        new Date(repository.updated_at), {
                         addSuffix: true,
                         locale: ptBR
                     })}
@@ -55,6 +57,13 @@ export function Card({repository} : ICardProps) {
                         <GoEye fontSize={16} color={theme['gray-300']} />
                         <span>{repository.watchers} watchers</span>
                     </Item>
+                    {repository.language && 
+                    languagesDictionary.find(language => language.name === repository.language) && (
+                        <Item>
+                            <GoDotFill fontSize={16} color={languagesDictionary.find(language => language.name === repository.language)?.color} />
+                            <span>{repository.language}</span>
+                        </Item>
+                    )}
                 </Items>
                 <Items>
                     <Link onClick={copySSHToClipboard}>

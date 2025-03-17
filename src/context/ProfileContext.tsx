@@ -19,7 +19,7 @@ export function ProfileProvider({ children}: IProfileProviderProps) {
     const fetchRepositoriesByUser = useCallback(async () => {
         try {
             const response = await GetRepositoriesByUser()
-            setRepositories(response.data)
+            setRepositories(response.data.items)
         } catch (error) {
             console.error('Failed to fetch repositories by user:', error)
         }
