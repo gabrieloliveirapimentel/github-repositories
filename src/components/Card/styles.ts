@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Toaster } from "react-hot-toast"
 
 export const Container = styled.div`
     background-color: ${props => props.theme["gray-500"]};
@@ -61,15 +62,25 @@ export const Item = styled.div`
     }
 `
 
-export const Link = styled.a`
+export const Link = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border: none;
+    background-color: transparent;
 
     gap: 8px;
 
     span {
         color: ${props => props.theme['gray-200']};
+    }
+
+    &:hover {
+        span, svg {
+            color: ${props => props.theme.blue};
+            cursor: pointer;
+        }
     }
 
     text-decoration: none;
@@ -78,6 +89,15 @@ export const Link = styled.a`
 export const Content = styled.div`
     display: flex;
     justify-content: space-between;
+`
+
+export const Toast = styled(Toaster)`
+    position: top-right;
+    background-color: ${props => props.theme["gray-500"]};
+    color: ${props => props.theme["gray-200"]};
+    
+    border-radius: 10px;
+    padding: 8px;
 `
 
 
