@@ -12,7 +12,8 @@ export function Home() {
     const [ search, setSearch ] = useState<string>('')
 
     useEffect(() => {
-        setFilteredRepositories(repositories.filter(repository => repository.name.toLowerCase().includes(search.toLowerCase())))
+        if (repositories) setFilteredRepositories(repositories.filter(repository => repository.full_name.toLowerCase().includes(search.toLowerCase()))) 
+        else setFilteredRepositories([])
     }
     , [search, repositories])
 
@@ -22,7 +23,7 @@ export function Home() {
             <Container>
                 <Content>
                     <h2>Repositórios</h2>
-                    <span>{repositories.length} repositórios</span>
+                    <span>{filteredRepositories.length} repositórios</span>
                 </Content>
                 <Search search={search} updateSearch={setSearch} />
                 <List>
