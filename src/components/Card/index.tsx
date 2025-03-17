@@ -17,6 +17,7 @@ export function Card({repository} : ICardProps) {
             style: {
                 backgroundColor: theme['gray-500'],
                 color: theme['gray-200'],
+                boxShadow: 'none'
             }
         });
     }
@@ -27,6 +28,7 @@ export function Card({repository} : ICardProps) {
             style: {
                 backgroundColor: theme['gray-500'],
                 color: theme['gray-200'],
+                boxShadow: 'none'
             }
         });
     }
