@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
 import { Card } from "../../components/Card"
 import { Search } from "../../components/Search"
-import { Content, Container, Button } from "./styles"
+import { Content, Container, Button, Spinner } from "./styles"
 import { GoChevronLeft, GoChevronRight } from "react-icons/go"
 import { IRepository, ListProps } from "../../@types/types"
+import { BeatLoader } from "react-spinners"
+import { useTheme } from "styled-components"
 
 export function List({ repositories, updateRepositories }: ListProps) {
+    const theme = useTheme()
+
     const [ filteredRepositories, setFilteredRepositories ] = useState<IRepository[]>(repositories)
     const [ search, setSearch ] = useState<string>('')
     const [ page, setPage ] = useState<number>(1)
@@ -39,7 +43,9 @@ export function List({ repositories, updateRepositories }: ListProps) {
                 {filteredRepositories.length > 0 ? filteredRepositories.map(( repository: IRepository )  => (
                     <Card key={repository.id} repository={repository} />
                 )) : (
-                    <span>Nenhum repositório encontrado</span>
+                    <Spinner>
+                        <BeatLoader color={theme.blue}/>
+                    </Spinner>
                 )}
             </Content>
             <Container>
