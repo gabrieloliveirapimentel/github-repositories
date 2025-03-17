@@ -68,7 +68,11 @@ export interface IRepository {
 export interface IProfileContextType {
     profile: IProfile;
     repositories: IRepository[];
-    fetchRepositoriesByUser: () => Promise<void>;
+    fetchRepositoriesByUser: (page: number) => Promise<void>;
 }
 
+export interface ListProps {
+    repositories: IRepository[]
+    updateRepositories: (page: number) => void
+}
 

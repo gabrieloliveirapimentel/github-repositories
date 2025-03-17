@@ -31,18 +31,3 @@ export const Content = styled.div`
         margin: 4rem 2rem 1rem;
     }
 `
-
-export const List = styled.div`
-    max-width: 864px;
-    margin: 48px 0;
-
-    display: flex;
-    flex-direction: column;
-
-    @media (max-width: 864px) {
-        align-items: center;
-        margin: 4rem 2rem 0;
-    }
-
-
-`

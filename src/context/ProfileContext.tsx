@@ -16,9 +16,9 @@ export function ProfileProvider({ children}: IProfileProviderProps) {
         }
     }, [])
 
-    const fetchRepositoriesByUser = useCallback(async () => {
+    const fetchRepositoriesByUser = useCallback(async (page: number) => {
         try {
-            const response = await GetRepositoriesByUser()
+            const response = await GetRepositoriesByUser(page)
             setRepositories(response.data.items)
         } catch (error) {
             console.error('Failed to fetch repositories by user:', error)
@@ -29,9 +29,11 @@ export function ProfileProvider({ children}: IProfileProviderProps) {
         fetchProfile()
     },[fetchProfile])
 
+    /*
     useEffect(() => {
         fetchRepositoriesByUser()
     }, [fetchRepositoriesByUser])
+    */
 
     return (
         <ProfileContext.Provider value={{profile, repositories, fetchRepositoriesByUser}}>
