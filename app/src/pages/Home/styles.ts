@@ -8,6 +8,10 @@ export const Container = styled.main`
     @media (max-width: 864px) {
         margin: 4rem auto 0;
     }
+
+    @media (max-width: 880px) {
+        max-width: 90%;
+    }
 `
 
 export const Content = styled.div`

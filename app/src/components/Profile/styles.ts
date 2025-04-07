@@ -20,14 +20,14 @@ export const Container = styled.div`
         border-radius: 8px;
     }
 
-    @media (max-width: 864px) {
-        margin: -5rem  24px 0 24px;
-    }
-
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
         height: auto;
+    }
+
+    @media (max-width: 880px) {
+        max-width: 82%;
     }
 `
 
